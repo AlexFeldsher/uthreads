@@ -1,0 +1,39 @@
+feld
+Alexander Feldsher (310289079)
+EX: 2
+
+FILES:
+uthreads.cpp -- uthreads.h implementation
+thread.h  -- a thread class
+scheduler.h -- scheduler class
+scheduler.cpp -- scheduler class implementation
+messages.h  -- contains definitions of error messages
+Makefile -- make file
+blackbox.h -- code needed to save function environment
+blackbox.cpp -- code needed to save function environment
+
+
+ANSWERS:
+Q1:
+User level threads are good for programs that need a lot of threads and fast response time since they
+provide less overhead than kernel threads and require less system calls.
+For example servers that get a lot of requests in a short period of time and need to both handle those
+requests and listen to new requests.
+
+Q2:
+The advantages of creating a process for each tab is that each process is encapsulated, failure
+or corruption in one process won't affect other processes. Additionally each process could use user level
+threads and that way have the benefits of both increased stability due to process separation and
+responsiveness due to the use of use level threads.
+
+Q3:
+The shell sends syscalls to the OS to read the user input.
+The keyboard sends interrupts to the OS when keys are pressed.
+Once the shell recognized that a command was entered (the enter key pressed) the syscall kill is performed
+which sends a SIGTERM signal to the given process id.
+
+Q4:
+Virtual time is the time that the process itself uses, while real time the the actual time that elapsed in
+the real world. Since the OS has a scheduler that switches between different processes, measuring the real
+time when instead of virtual time in our implementation of users level threads will cause problems.
+The real time doesn't reflect the actual time that the process was running on the cpu.
